@@ -1,4 +1,5 @@
 const userExists = (req, res, next) => {
+    const id = req.params.id;
     pool.query('SELECT * FROM users WHERE id=$1;', [id])
     .then((data) => {
         if(!data.rows.length){
